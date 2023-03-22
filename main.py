@@ -32,11 +32,11 @@ class DrawingPlots:
             if '/' in temp['name']:
                 new_name = temp['name'].replace('/', '&')
                 path = 'plots/' + new_name + '_' + str(count)
-                plt.savefig(path)
+                plt.savefig(path, format='png')
                 all_path.append(str(path))
             else:
                 path = 'plots/' + temp['name'] + '_' + str(count)
-                plt.savefig(path)
+                plt.savefig(path, format='png')
                 all_path.append(str(path))
 
             count += 1
