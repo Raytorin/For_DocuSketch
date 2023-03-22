@@ -10,8 +10,7 @@ class DrawingPlots:
         count = 0
         data_analysis = pd.read_json(data_json)
         data_info = data_analysis.shape
-        while count <= 30:
-                # data_info[0]:
+        while count <= data_info[0]:
             temp = data_analysis.iloc[count]
 
             corners_values = [temp['gt_corners'], temp['rb_corners']]
@@ -32,7 +31,7 @@ class DrawingPlots:
 
             if '/' in temp['name']:
                 new_name = temp['name'].replace('/', '&')
-                path = 'plots/' + new_name + str(count)
+                path = 'plots/' + new_name + '_' + str(count)
                 plt.savefig(path)
                 all_path.append(str(path))
             else:
