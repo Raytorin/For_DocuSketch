@@ -1,3 +1,5 @@
+# About
+### This application builds plots on which the deviations of the floor vs ceiling corners. Accepts a json file as input and outputs all histograms to jupiter notebook
 # Tech Stack
 ### - [Python](https://www.python.org/)
 ### - [Jupiter Notebook](https://jupyter.org/)
