@@ -1,3 +1,8 @@
+# Tech Stack
+### - [Python](https://www.python.org/)
+### - [Jupiter Notebook](https://jupyter.org/)
+### - [Pandas](https://pandas.pydata.org/)
+### - [Pillow](https://python-pillow.org/)
 # Setup
 ### Before launching, install the necessary libraries from requirements.txt
 ### 1) `python -m pip install -r requirements.txt` or `pip install -r requirements.txt`
