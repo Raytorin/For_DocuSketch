@@ -4,13 +4,19 @@ import matplotlib.pyplot as plt
 
 class DrawingPlots:
 
-    def draw_plots(self, data_json):
+    def draw_plots(self, data_json, max_count=0):
         plt.rcParams["figure.figsize"] = [15, 5]
         all_path = []
         count = 0
         data_analysis = pd.read_json(data_json)
         data_info = data_analysis.shape
-        while count <= data_info[0]:
+        if max_count == 0:
+            count_data = data_info[0]
+        elif (max_count > 0) and (max_count < data_info[0]):
+            count_data = max_count
+        else:
+            return 'ValueError'
+        while count < count_data:
             temp = data_analysis.iloc[count]
 
             corners_values = [temp['gt_corners'], temp['rb_corners']]
@@ -31,17 +37,17 @@ class DrawingPlots:
 
             if '/' in temp['name']:
                 new_name = temp['name'].replace('/', '&')
-                path = 'plots/' + new_name + '_' + str(count)
+                path = 'plots/' + new_name + '_' + str(count) + '.png'
                 plt.savefig(path, format='png')
                 all_path.append(str(path))
             else:
-                path = 'plots/' + temp['name'] + '_' + str(count)
+                path = 'plots/' + temp['name'] + '_' + str(count) + '.png'
                 plt.savefig(path, format='png')
                 all_path.append(str(path))
 
             count += 1
 
-        return all_path
+        return all_path, count_data
 
 
 if __name__ == '__main__':
